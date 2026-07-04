@@ -1,0 +1,35 @@
+[
+  {
+    "name": "혜빈",
+    "role": "팀장",
+    "intro": "[MOCK] 질문을 정의하고 팀의 방향을 잡습니다. 좋은 분석은 좋은 질문에서 시작한다고 믿습니다.",
+    "focus": ["problem-framing", "sql", "storytelling"],
+    "photo": "/images/team/hyebin.svg",
+    "alt": "팀장 혜빈 프로필 사진 자리 (Mock 이미지, 실제 사진으로 교체 예정)"
+  },
+  {
+    "name": "택한",
+    "role": "팀원",
+    "intro": "[MOCK] 데이터 전처리와 통계 분석 담당. 지저분한 데이터를 깨끗하게 만드는 일을 즐깁니다.",
+    "focus": ["python", "preprocessing", "statistics"],
+    "photo": "/images/team/taekhan.svg",
+    "alt": "팀원 택한 프로필 사진 자리 (Mock 이미지, 실제 사진으로 교체 예정)"
+  },
+  {
+    "name": "민정",
+    "role": "팀원",
+    "intro": "[MOCK] 시각화와 리포트 담당. 차트 한 장으로 설명이 끝나는 순간을 좋아합니다.",
+    "focus": ["tableau", "visualization", "report"],
+    "photo": "/images/team/minjung.svg",
+    "alt": "팀원 민정 프로필 사진 자리 (Mock 이미지, 실제 사진으로 교체 예정)"
+  },
+  {
+    "name": "최요한",
+    "role": "매니저 · 멘토",
+    "isMentor": true,
+    "intro": "[MOCK] 실무 관점의 피드백과 방향 점검을 맡습니다. 팀이 길을 잃지 않게 돕는 역할.",
+    "focus": ["mentoring", "analytics"],
+    "photo": "/images/team/yohan.svg",
+    "alt": "매니저 최요한 프로필 사진 자리 (Mock 이미지, 실제 사진으로 교체 예정)"
+  }
+]

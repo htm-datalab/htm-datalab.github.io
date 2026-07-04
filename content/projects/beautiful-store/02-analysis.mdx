@@ -1,0 +1,54 @@
+---
+title: "데이터 분석"
+---
+
+{/* TODO: replace — 코드·수치 전부 [MOCK] 예시. 실데이터 경로/컬럼명 노출 금지 */}
+
+## 전처리
+
+[MOCK] 분석의 절반은 전처리였습니다. 영수증 단위 트랜잭션을 고객·주차 단위로
+집계하고, 그램샵 도입 시점을 기준으로 전/후 기간을 정렬했습니다.
+
+```python title="preprocess.py"
+import pandas as pd
+
+# [MOCK] 예시 코드 — 실제 컬럼명·경로가 아닙니다
+tx = pd.read_parquet("transactions_mock.parquet")
+
+# 금액은 절대값 대신 도입 전 평균=100 상대지수로 변환 (보안 원칙)
+base = tx.loc[tx["period"] == "before", "amount"].mean()
+tx["amount_idx"] = tx["amount"] / base * 100
+
+weekly = (
+    tx.groupby(["store_id", "week", "channel"])
+      .agg(sales_idx=("amount_idx", "sum"), receipts=("receipt_id", "nunique"))
+      .reset_index()
+)
+```
+
+## 분석 방법
+
+카니발리제이션은 "그램샵 매출이 얼마나 늘었나"가 아니라
+**"그램샵이 없었다면 기존 매대가 얼마나 팔렸을까"** 를 추정하는 문제입니다.
+
+1. **전후 비교(도입 매장)** — 그램샵 도입 매장의 기존 매대 판매 추이를 도입 전후로 비교
+2. **대조군 보정** — 미도입 매장의 같은 기간 추이로 계절성·전체 트렌드를 제거
+3. **교차 구매 분석** — 그램샵 영수증과 기존 매대 영수증의 동시 발생 패턴 확인
+
+```python title="did_mock.py"
+# [MOCK] 이중차분(DiD) 요지 — 실제 모델 스펙은 별도 문서
+effect = (treat_after - treat_before) - (ctrl_after - ctrl_before)
+```
+
+## 중간 결과 (Mock)
+
+| 구분 | 기존 매대 판매지수 변화 | 해석 |
+| --- | --- | --- |
+| 그램샵 도입 매장 | [MOCK] −4p | 소폭 감소 |
+| 미도입 매장(대조군) | [MOCK] −3p | 비슷하게 감소 |
+| 보정 후 순효과 | [MOCK] −1p 내외 | 잠식 효과 미미 |
+
+<Callout type="insight" title="중간 발견">
+  [MOCK] 기존 매대의 감소분 대부분은 그램샵 때문이 아니라 시즌 요인이었습니다.
+  잠식보다 교차 구매 신호가 먼저 보이기 시작했습니다.
+</Callout>

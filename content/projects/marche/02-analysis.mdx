@@ -1,0 +1,44 @@
+---
+title: "데이터 분석"
+---
+
+{/* TODO: replace — 코드·수치 전부 [MOCK] 예시 */}
+
+## 지표 설계
+
+[MOCK] 지표는 세 축으로 정리했습니다. 축마다 "활동이 만든 변화"를 물을 수 있는
+질문을 먼저 정하고, 그 질문에 답할 수 있는 데이터만 골랐습니다.
+
+| 축 | 질문 | 지표 후보 (Mock) |
+| --- | --- | --- |
+| 생산자 | 장터가 농부의 판로가 되는가 | 재출점률, 판로 다변화 인식 |
+| 소비자 | 소비 행동이 달라지는가 | 재방문 의향, 장보기 습관 변화 응답 |
+| 지역 | 장터가 관계를 만드는가 | 자원활동 참여 추이, 협업 프로젝트 수 |
+
+## 설문 전처리
+
+```python title="survey_clean.py"
+import pandas as pd
+
+# [MOCK] 예시 코드 — 실제 문항·경로가 아닙니다
+df = pd.read_csv("survey_mock.csv")
+
+# 개인 식별 가능 컬럼은 로드 즉시 제거 (익명화 원칙)
+df = df.drop(columns=["name", "phone", "email"], errors="ignore")
+
+# 리커트 5점 문항 → 긍정 응답률로 집계
+likert_cols = [c for c in df.columns if c.startswith("q_")]
+positive_rate = (df[likert_cols] >= 4).mean().round(3)
+```
+
+## 진행 상황
+
+- [x] 지표 프레임 초안 (생산자·소비자·지역)
+- [x] 설문 문항 설계 및 현장 검증 (혜화 장터)
+- [ ] 본 설문 수집 · 집계
+- [ ] 리포트 초안 집필 · 시각화
+
+<Callout type="note" title="다음 단계">
+  [MOCK] 7월 중 클라이언트 중간 공유 후, 본 설문을 돌리고 리포트 초안에
+  들어갑니다. 진행 기록은 미팅 로그와 블로그에 남깁니다.
+</Callout>

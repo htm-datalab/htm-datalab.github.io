@@ -1,0 +1,65 @@
+[
+  {
+    "src": "/images/gallery/g01.svg",
+    "alt": "킥오프 미팅에서 화이트보드에 아이디어를 적는 모습 (Mock 이미지)",
+    "caption": "킥오프 데이 — 첫 화이트보드",
+    "tags": ["미팅"],
+    "date": "2026-03-07"
+  },
+  {
+    "src": "/images/gallery/g02.svg",
+    "alt": "아름다운가게 담당자와의 첫 미팅 현장 (Mock 이미지)",
+    "caption": "아름다운가게 1차 미팅",
+    "tags": ["미팅", "아름다운가게"],
+    "date": "2026-04-02"
+  },
+  {
+    "src": "/images/gallery/g03.svg",
+    "alt": "아름다운가게 그램샵 코너를 둘러보는 모습 (Mock 이미지)",
+    "caption": "그램샵 코너 탐방",
+    "tags": ["체험", "아름다운가게"],
+    "date": "2026-04-18"
+  },
+  {
+    "src": "/images/gallery/g04.svg",
+    "alt": "밤 늦게까지 이어진 분석 작업 (Mock 이미지)",
+    "caption": "심야 분석 스프린트",
+    "tags": ["미팅"],
+    "date": "2026-05-08"
+  },
+  {
+    "src": "/images/gallery/g05.svg",
+    "alt": "최종 보고 발표 리허설 장면 (Mock 이미지)",
+    "caption": "최종 보고 리허설",
+    "tags": ["미팅", "아름다운가게"],
+    "date": "2026-05-27"
+  },
+  {
+    "src": "/images/gallery/g06.svg",
+    "alt": "마르쉐@ 킥오프 미팅 현장 (Mock 이미지)",
+    "caption": "마르쉐@ 킥오프",
+    "tags": ["미팅", "마르쉐"],
+    "date": "2026-06-06"
+  },
+  {
+    "src": "/images/gallery/g07.svg",
+    "alt": "혜화 장터 부스에서 설문을 진행하는 모습 (Mock 이미지)",
+    "caption": "혜화 장터 부스에서",
+    "tags": ["체험", "마르쉐"],
+    "date": "2026-06-20"
+  },
+  {
+    "src": "/images/gallery/g08.svg",
+    "alt": "출점 농부 인터뷰를 기록하는 모습 (Mock 이미지)",
+    "caption": "농부 인터뷰 기록",
+    "tags": ["체험", "마르쉐"],
+    "date": "2026-06-20"
+  },
+  {
+    "src": "/images/gallery/g09.svg",
+    "alt": "7월 정기 회의에서 지표 프레임을 논의하는 모습 (Mock 이미지)",
+    "caption": "7월 정기 회의",
+    "tags": ["미팅"],
+    "date": "2026-07-03"
+  }
+]
