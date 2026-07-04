@@ -1,7 +1,7 @@
 # Team. 혜빈이택한민정 — 포트폴리오 사이트
 
 대학생 데이터 분석 팀의 포트폴리오 + 블로그.
-**Next.js 정적 사이트**로, GitHub Pages(`https://htm-analysis.github.io`)에 자동 배포됩니다.
+**Next.js 정적 사이트**로, GitHub Pages(`https://htm-datalab.github.io`)에 자동 배포됩니다.
 
 > ⚠️ **시작 전 필독**: 이 레포는 공개입니다. 실데이터·개인정보·시크릿 커밋 금지.
 > 규칙은 [`CLAUDE.md`](./CLAUDE.md), 디자인 규칙은 [`design.md`](./design.md) 참조.
@@ -102,8 +102,8 @@ author: "혜빈"
 처음 한 번:
 
 ```bash
-git clone https://github.com/HTM-analysis/HTM-analysis.github.io.git
-cd HTM-analysis.github.io
+git clone https://github.com/htm-datalab/htm-datalab.github.io.git
+cd htm-datalab.github.io
 npm install
 git config core.hooksPath .githooks   # 커밋 전 보안 검사 훅 켜기 (필수)
 ```
@@ -139,7 +139,7 @@ git push
 
 ### 최초 1회 설정 (레포 만들 때)
 
-1. GitHub에 `HTM-analysis` 조직(또는 계정) 아래 **`HTM-analysis.github.io`** 이름으로 public 레포 생성
+1. GitHub에 `htm-datalab` 조직 아래 **`htm-datalab.github.io`** 이름으로 public 레포 생성
 2. 레포 Settings → Pages → Source를 **GitHub Actions**로 변경
 3. 이 프로젝트를 push → 자동 배포 시작
 

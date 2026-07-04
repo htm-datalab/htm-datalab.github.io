@@ -61,7 +61,7 @@
 ## 6. 기술 제약 (배포가 깨지는 지점)
 
 - `next.config.ts`: `output: 'export'`, `images: { unoptimized: true }`, `trailingSlash: true` 유지.
-  **basePath/assetPrefix 설정 금지** (유저/조직 루트 페이지 `HTM-analysis.github.io` 배포 전제).
+  **basePath/assetPrefix 설정 금지** (조직 루트 페이지 `htm-datalab.github.io` 배포 전제).
 - `public/.nojekyll` 삭제 금지 (없으면 GitHub Pages가 `_next/`를 무시해 사이트 전체 404).
 - SSR·API Routes·미들웨어·ISR 사용 금지. 모든 데이터 처리는 빌드 타임에만.
 - 동적 라우트는 반드시 `generateStaticParams`로 전부 사전 생성.
