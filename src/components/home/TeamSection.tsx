@@ -8,7 +8,7 @@ export function TeamSection({ members }: { members: Member[] }) {
   return (
     <section id="team" aria-labelledby="team-heading" className="scroll-mt-16">
       <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-32">
-        <Reveal>
+        <Reveal className="text-center">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-silver">
             team — 팀원과 멘토
           </p>

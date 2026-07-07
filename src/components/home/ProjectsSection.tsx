@@ -9,7 +9,7 @@ export function ProjectsSection({ projects }: { projects: ProjectMeta[] }) {
   return (
     <section id="projects" aria-labelledby="projects-heading" className="scroll-mt-16">
       <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-32">
-        <Reveal>
+        <Reveal className="text-center">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-silver">
             projects — 의뢰 작업
           </p>
