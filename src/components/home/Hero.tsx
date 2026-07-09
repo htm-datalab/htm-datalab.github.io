@@ -8,9 +8,9 @@ import type { Member } from "@/lib/content";
 import { EASE_OUT_EXPO } from "@/components/motion/Reveal";
 
 const NAMES = [
-  { name: "혜빈", label: "", trailing: "이", tilt: "rotate-[-2.5deg]" },
-  { name: "택한", label: "", trailing: "", tilt: "rotate-[1.5deg]" },
-  { name: "민정", label: "", trailing: "", tilt: "rotate-[-1.5deg]" },
+  { name: "혜빈", label: "", trailing: "이", tilt: "rotate-[-2.5deg]", lift: "bottom-[0.02em]" },
+  { name: "택한", label: "", trailing: "", tilt: "rotate-[1.5deg]", lift: "bottom-[0.14em]" },
+  { name: "민정", label: "", trailing: "", tilt: "rotate-[-1.5deg]", lift: "bottom-[0.06em]" },
 ] as const;
 
 // 등장 순서: 문장(0.1s) → 형광펜 3획(0.7s~) → 사진(각 획 직후) → 라벨(1.5s~) → 나머지
@@ -48,7 +48,7 @@ export function Hero({ members }: { members: Member[] }) {
 
         {/* 팀명 디코딩. 위 여백은 이름 뒤로 솟는 사진 + 라벨 자리 (em = 제목 글자 크기 비례) */}
         <motion.h1
-          className="mt-[1.3em] flex flex-col items-center gap-y-[1.25em] font-display text-[clamp(2.75rem,9vw,6.75rem)] font-extrabold leading-[1.1] tracking-[-0.03em] text-ink sm:flex-row sm:justify-center sm:gap-x-[0.35em] sm:gap-y-0"
+          className="mt-[1.5em] flex flex-col items-center gap-y-[1.6em] font-display text-[clamp(2.75rem,9vw,6.75rem)] font-extrabold leading-[1.1] tracking-[-0.03em] text-ink sm:flex-row sm:justify-center sm:gap-x-[0.35em] sm:gap-y-0"
           {...fadeUp(reduce, 0.2)}
         >
           {NAMES.map((seg, i) => {
@@ -73,12 +73,12 @@ export function Hero({ members }: { members: Member[] }) {
                   {photo && (
                     <span
                       aria-hidden
-                      className={`absolute bottom-[-0.12em] left-1/2 -z-20 w-[1.32em] -translate-x-1/2 ${seg.tilt}`}
+                      className={`absolute left-1/2 -z-20 w-[1.5em] -translate-x-1/2 transition-all duration-200 group-hover/name:-translate-y-[0.1em] ${seg.lift} ${seg.tilt}`}
                     >
                       <motion.img
                         src={photo}
                         alt=""
-                        className="aspect-[3/4] w-full border-[0.03em] border-paper object-cover grayscale transition-[filter] duration-[450ms] group-hover/name:grayscale-0"
+                        className="aspect-[3/4] w-full border-[0.045em] border-paper object-cover shadow-[0.02em_0.04em_0.1em_rgba(22,22,22,0.15)] grayscale transition-[filter] duration-[450ms] group-hover/name:grayscale-0"
                         initial={reduce ? {} : { opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{
