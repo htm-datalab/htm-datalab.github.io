@@ -4,8 +4,8 @@
     "role": "팀장",
     "intro": "[MOCK] 질문을 정의하고 팀의 방향을 잡습니다. 좋은 분석은 좋은 질문에서 시작한다고 믿습니다.",
     "focus": ["problem-framing", "sql", "storytelling"],
-    "photo": "/images/team/hyebin.svg",
-    "alt": "팀장 혜빈 프로필 사진 자리 (Mock 이미지, 실제 사진으로 교체 예정)"
+    "photo": "/images/team/hyebing.webp",
+    "alt": "Alien 혜빈"
   },
   {
     "name": "택한",
@@ -25,10 +25,10 @@
   },
   {
     "name": "최요한",
-    "role": "매니저 · 멘토",
+    "role": "멘토",
     "isMentor": true,
-    "intro": "[MOCK] 실무 관점의 피드백과 방향 점검을 맡습니다. 팀이 길을 잃지 않게 돕는 역할.",
-    "focus": ["mentoring", "analytics"],
+    "intro": "실무 관점의 피드백과 방향성 점검을 맡습니다. 팀이 길을 잃지 않도록 감독합니다.",
+    "focus": ["mentoring", "coaching"],
     "photo": "/images/team/yohan.svg",
     "alt": "매니저 최요한 프로필 사진 자리 (Mock 이미지, 실제 사진으로 교체 예정)"
   }
