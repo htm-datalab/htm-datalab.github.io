@@ -10,10 +10,10 @@
   {
     "name": "택한",
     "role": "팀원",
-    "intro": "[MOCK] 데이터 전처리와 통계 분석 담당. 지저분한 데이터를 깨끗하게 만드는 일을 즐깁니다.",
-    "focus": ["python", "preprocessing", "statistics"],
-    "photo": "/images/team/taekhan.svg",
-    "alt": "팀원 택한 프로필 사진 자리 (Mock 이미지, 실제 사진으로 교체 예정)"
+    "intro": "프로젝트 방향성을 설계하고, 복잡한 결과를 명료하게 시각화합니다.",
+    "focus": ["기획", "전처리", "시각화", "management"],
+    "photo": "/images/team/taekhan.webp",
+    "alt": "윤택한 사진"
   },
   {
     "name": "민정",
