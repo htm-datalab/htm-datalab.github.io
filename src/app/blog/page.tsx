@@ -15,14 +15,14 @@ export default function BlogPage() {
   return (
     <div className="pt-16">
       <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8 lg:py-24">
-        <Reveal>
+        <Reveal className="text-center">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-silver">
             blog — 기록과 후기
           </p>
           <h1 className="mt-4 font-display text-[clamp(2rem,5vw,3.5rem)] font-extrabold text-ink">
             블로그
           </h1>
-          <p className="mt-4 max-w-xl leading-relaxed text-graphite">
+          <p className="mx-auto mt-4 max-w-xl leading-relaxed text-graphite">
             미팅 후기, 현장 체험기, 분석하다 만난 시행착오를 씁니다.
           </p>
         </Reveal>
