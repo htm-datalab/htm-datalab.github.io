@@ -16,7 +16,7 @@ export function TeamSection({ members }: { members: Member[] }) {
             id="team-heading"
             className="mt-4 font-display text-[clamp(1.75rem,4.5vw,2.75rem)] font-extrabold leading-tight text-ink"
           >
-            세 사람의 이름이
+            세 명의 이름이
             <br />
             하나의 팀명이 됐습니다
           </h2>

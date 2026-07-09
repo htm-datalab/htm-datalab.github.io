@@ -23,7 +23,7 @@ export default function BlogPage() {
             블로그
           </h1>
           <p className="mx-auto mt-4 max-w-xl leading-relaxed text-graphite">
-            미팅 후기, 현장 체험기, 분석하다 만난 시행착오를 씁니다.
+            미팅 후기, 현장 체험기, 분석 도중 마주친 시행착오를 기록합니다.
           </p>
         </Reveal>
 

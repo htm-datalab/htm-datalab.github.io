@@ -23,7 +23,7 @@ export default function GalleryPage() {
             갤러리
           </h1>
           <p className="mx-auto mt-4 max-w-xl leading-relaxed text-graphite">
-            미팅과 현장의 순간들. 사진 위에 마우스를 올리면 색이 돌아옵니다.
+            형형색색의 순간들을 포착합니다.
           </p>
         </Reveal>
 

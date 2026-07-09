@@ -8,9 +8,9 @@ import type { Member } from "@/lib/content";
 import { EASE_OUT_EXPO } from "@/components/motion/Reveal";
 
 const NAMES = [
-  { name: "혜빈", label: "팀장", trailing: "이", tilt: "rotate-[-2.5deg]" },
-  { name: "택한", label: "팀원", trailing: "", tilt: "rotate-[1.5deg]" },
-  { name: "민정", label: "팀원", trailing: "", tilt: "rotate-[-1.5deg]" },
+  { name: "혜빈", label: "", trailing: "이", tilt: "rotate-[-2.5deg]" },
+  { name: "택한", label: "", trailing: "", tilt: "rotate-[1.5deg]" },
+  { name: "민정", label: "", trailing: "", tilt: "rotate-[-1.5deg]" },
 ] as const;
 
 // 등장 순서: 문장(0.1s) → 형광펜 3획(0.7s~) → 사진(각 획 직후) → 라벨(1.5s~) → 나머지
@@ -43,7 +43,7 @@ export function Hero({ members }: { members: Member[] }) {
           className="font-mono text-xs uppercase tracking-[0.2em] text-silver"
           {...fadeUp(reduce, 0.1)}
         >
-          team portfolio — 대학생 데이터 분석 팀
+          대학생 데이터 분석 팀
         </motion.p>
 
         {/* 팀명 디코딩. 위 여백은 이름 뒤로 솟는 사진 + 라벨 자리 (em = 제목 글자 크기 비례) */}
@@ -114,9 +114,8 @@ export function Hero({ members }: { members: Member[] }) {
           className="mx-auto mt-10 max-w-xl text-base leading-relaxed text-graphite md:text-lg"
           {...fadeUp(reduce, 0.45)}
         >
-          숫자 더미에서 <strong className="font-semibold text-ink">형광펜 그을 한 줄</strong>을
-          찾습니다. 사회적 기업 아름다운가게, 농부시장 마르쉐@의 데이터를 분석한
-          대학생 데이터 분석 팀입니다.
+          방대한 데이터에 <strong className="font-semibold text-ink">형광펜 한 줄</strong>을
+          긋습니다.<br></br><strong className="font-semibold text-ink">남을 돕는 사람을 돕는</strong> 대학생, 혜빈이택한민정 입니다.
         </motion.p>
 
         {/* 데이터 스트립 — 팀의 기본 수치, 리포트 푸터처럼 한 줄 */}
