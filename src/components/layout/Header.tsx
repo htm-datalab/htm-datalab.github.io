@@ -29,18 +29,23 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // 모바일 메뉴: 열리면 스크롤 잠금 + Escape로 닫기 + 첫 링크로 포커스
+  // 모바일 메뉴: Escape·바깥 클릭으로 닫기 + 첫 링크로 포커스.
+  // 컴팩트 드롭다운이라 스크롤 잠금은 하지 않는다 (잠그면 스크롤바가 사라지며 레이아웃이 밀린다).
+  const headerRef = useRef<HTMLElement>(null);
   useEffect(() => {
     if (!open) return;
-    document.body.style.overflow = "hidden";
     firstLinkRef.current?.focus();
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
     };
+    const onPointerDown = (e: PointerEvent) => {
+      if (!headerRef.current?.contains(e.target as Node)) setOpen(false);
+    };
     window.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointerDown);
     return () => {
-      document.body.style.overflow = "";
       window.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPointerDown);
     };
   }, [open]);
 
@@ -59,6 +64,7 @@ export function Header() {
 
   return (
     <header
+      ref={headerRef}
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
         scrolled || open
           ? "border-b border-line bg-paper/85 backdrop-blur-md"
@@ -116,26 +122,31 @@ export function Header() {
         </button>
       </div>
 
-      {/* 모바일 오버레이 메뉴 */}
+      {/* 모바일 드롭다운 메뉴 — 헤더 기준 absolute (fixed는 backdrop-blur가 containing block을
+          만들어 높이가 붕괴하므로 금지). 불투명 paper 배경 + 컴팩트 카드. */}
       <AnimatePresence>
         {open && (
           <motion.nav
             id="mobile-menu"
             aria-label="모바일 메뉴"
-            className="fixed inset-x-0 top-16 bottom-0 z-40 bg-paper px-5 pt-6 md:hidden"
-            initial={reduce ? { opacity: 1 } : { opacity: 0, y: -8 }}
+            className="absolute right-4 top-full mt-2 w-44 overflow-hidden rounded-lg border border-line bg-paper shadow-[0_8px_24px_rgba(22,22,22,0.1)] md:hidden"
+            initial={reduce ? { opacity: 1 } : { opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8 }}
-            transition={{ duration: 0.2 }}
+            exit={reduce ? { opacity: 0 } : { opacity: 0, y: -6 }}
+            transition={{ duration: 0.18 }}
           >
-            <ul>
+            <ul className="divide-y divide-line">
               {NAV.map((item, i) => (
-                <li key={item.label} className="border-b border-line">
+                <li key={item.label}>
                   <Link
                     ref={i === 0 ? firstLinkRef : undefined}
                     href={linkHref(item)}
                     onClick={() => setOpen(false)}
-                    className="block py-4 font-display text-2xl font-semibold text-ink"
+                    className={`block px-4 py-3 text-sm ${
+                      isActive(item)
+                        ? "font-semibold text-ink underline decoration-marker decoration-4 underline-offset-4"
+                        : "text-ink"
+                    }`}
                   >
                     {item.label}
                   </Link>
