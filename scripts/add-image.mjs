@@ -1,13 +1,13 @@
-// 팀/갤러리 사진을 webp로 변환하는 로컬 CLI. JSON 파일은 건드리지 않고
-// content/data/{members,gallery}.json에 붙여넣을 스니펫만 출력한다.
+// 팀/갤러리/블로그 사진을 webp로 변환하는 로컬 CLI. JSON·MDX 파일은 건드리지 않고
+// content/data/{members,gallery}.json 또는 블로그 본문에 붙여넣을 스니펫만 출력한다.
 //
 // 사용법:
-//   npm run add-image -- <파일1> [파일2 ...] --to <team|gallery> [--name <이름>] [--quality <1-100>] [--force]
+//   npm run add-image -- <파일1> [파일2 ...] --to <team|gallery|blog> [--name <이름>] [--quality <1-100>] [--force]
 //
 // 예:
 //   npm run add-image -- "C:\Users\me\Pictures\팀 사진.jpg" --to gallery --name kickoff-day
 import { parseArgs } from "node:util";
-import { existsSync, statSync } from "node:fs";
+import { existsSync, mkdirSync, statSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
@@ -16,6 +16,7 @@ const REPO_ROOT = path.resolve(fileURLToPath(import.meta.url), "..", "..");
 const TARGET_DIRS = {
   team: path.join(REPO_ROOT, "public", "images", "team"),
   gallery: path.join(REPO_ROOT, "public", "images", "gallery"),
+  blog: path.join(REPO_ROOT, "public", "images", "blog"),
 };
 const SUPPORTED_EXT = new Set([".png", ".jpg", ".jpeg", ".webp"]);
 const MAX_DIMENSION = 1600;
@@ -24,17 +25,18 @@ const GITIGNORE_TRAP = /^(secret|credentials)|token/i;
 
 function printUsage() {
   console.log(`사용법:
-  npm run add-image -- <파일1> [파일2 ...] --to <team|gallery> [--name <이름>] [--quality <1-100>] [--force]
+  npm run add-image -- <파일1> [파일2 ...] --to <team|gallery|blog> [--name <이름>] [--quality <1-100>] [--force]
 
 옵션:
-  --to team|gallery   저장 위치 (필수)
-  --name <이름>        출력 파일명 (확장자 제외, 입력 파일 1개일 때만 사용 가능)
-  --quality <1-100>   webp 품질 (기본 80)
-  --force             같은 이름의 파일이 있어도 덮어쓰기
+  --to team|gallery|blog   저장 위치 (필수)
+  --name <이름>             출력 파일명 (확장자 제외, 입력 파일 1개일 때만 사용 가능)
+  --quality <1-100>        webp 품질 (기본 80)
+  --force                  같은 이름의 파일이 있어도 덮어쓰기
 
 예:
   npm run add-image -- "C:\\Users\\me\\Pictures\\팀 사진.jpg" --to gallery --name kickoff-day
   npm run add-image -- ".\\hyebin.jpg" --to team --name hyebin
+  npm run add-image -- ".\\사진.jpg" --to blog --name my-post-photo
 
 지원 형식: png, jpg, jpeg, webp (변환됨) / gif는 지원하지 않음 / svg는 변환 없이 직접 복사`);
 }
@@ -75,6 +77,9 @@ function printSnippet(to, name) {
         2,
       ),
     );
+  } else if (to === "blog") {
+    console.log(`\n본문에 붙여넣기:`);
+    console.log(`![TODO: 사진 설명](${webPath})`);
   } else {
     console.log(`\ncontent/data/members.json의 해당 팀원 항목에서 두 필드 교체:`);
     console.log(`  "photo": "${webPath}",`);
@@ -132,6 +137,7 @@ async function processFile(inputPath, { to, name, quality, force }) {
       `이미 존재하는 파일입니다: ${outPath}\n  --name으로 다른 이름을 쓰거나 --force로 덮어쓰세요.`,
     );
   }
+  mkdirSync(outDir, { recursive: true });
 
   const before = statSync(inputPath).size;
   const dims = await sharp(inputPath)
@@ -170,8 +176,8 @@ async function main() {
     return;
   }
 
-  if (values.to !== "team" && values.to !== "gallery") {
-    console.error(`--to는 team 또는 gallery여야 합니다 (입력값: ${values.to ?? "없음"})\n`);
+  if (!["team", "gallery", "blog"].includes(values.to)) {
+    console.error(`--to는 team, gallery, blog 중 하나여야 합니다 (입력값: ${values.to ?? "없음"})\n`);
     printUsage();
     process.exitCode = 1;
     return;

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getBlogPosts } from "@/lib/content";
 import { PostCard } from "@/components/blog/PostCard";
 import { Reveal } from "@/components/motion/Reveal";
+import { MarkerScribble } from "@/components/motion/MarkerScribble";
 import { StaggerGroup, StaggerItem } from "@/components/motion/Stagger";
 
 export const metadata: Metadata = {
@@ -20,7 +21,7 @@ export default function BlogPage() {
             blog — 기록과 후기
           </p>
           <h1 className="mt-4 font-display text-[clamp(2rem,5vw,3.5rem)] font-extrabold text-ink">
-            블로그
+            <MarkerScribble>블로그</MarkerScribble>
           </h1>
           <p className="mx-auto mt-4 max-w-xl leading-relaxed text-graphite">
             미팅 후기, 현장 체험기, 분석 도중 마주친 시행착오를 기록합니다.

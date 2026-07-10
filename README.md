@@ -46,6 +46,14 @@ author: "혜빈"
 
 주의: 본문에 HTML 주석(`<!-- -->`)은 쓸 수 없습니다. 주석은 `{/* 이렇게 */}`.
 
+### 글에 사진 넣기
+
+```bash
+npm run add-image -- "사진.jpg" --to blog --name my-post-photo
+```
+
+EXIF 제거·리사이즈·webp 변환 후 출력되는 마크다운 줄(`![설명](/images/blog/my-post-photo.webp)`)을 본문에 붙여넣으면 됩니다.
+
 ### 프로젝트 내용 수정
 
 `content/projects/<프로젝트폴더>/` 안의 파일을 수정합니다:
