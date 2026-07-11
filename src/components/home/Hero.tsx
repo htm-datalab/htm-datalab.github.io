@@ -115,7 +115,7 @@ export function Hero({ members }: { members: Member[] }) {
           {...fadeUp(reduce, 0.45)}
         >
           방대한 데이터에 <strong className="font-semibold text-ink">형광펜 한 줄</strong>을
-          긋습니다.<br></br><strong className="font-semibold text-ink">남을 돕는 사람을 돕는</strong> 대학생, 혜빈이택한민정 입니다.
+          긋습니다.<br></br><strong className="font-semibold text-ink">남을 돕는 사람을 돕는</strong> 대학생, <strong className="font-semibold text-ink">혜빈이택한민정</strong> 입니다.
         </motion.p>
 
         {/* 데이터 스트립 — 팀의 기본 수치, 리포트 푸터처럼 한 줄 */}

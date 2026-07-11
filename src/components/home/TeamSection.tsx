@@ -10,7 +10,7 @@ export function TeamSection({ members }: { members: Member[] }) {
       <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-32">
         <Reveal className="text-center">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-silver">
-            team — 팀원과 멘토
+            team 소개
           </p>
           <h2
             id="team-heading"

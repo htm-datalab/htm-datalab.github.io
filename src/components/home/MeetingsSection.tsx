@@ -20,7 +20,7 @@ export function MeetingsSection({ meetings }: { meetings: Meeting[] }) {
             id="meetings-heading"
             className="mt-4 font-display text-[clamp(1.75rem,4.5vw,2.75rem)] font-extrabold leading-tight text-paper"
           >
-            기록이 곧 진행률입니다
+            우리들의 기록
           </h2>
         </Reveal>
 
