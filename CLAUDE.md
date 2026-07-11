@@ -67,3 +67,5 @@
 - 동적 라우트는 반드시 `generateStaticParams`로 전부 사전 생성.
 - 콘텐츠는 `/content/**` (MDX·JSON)에서만 관리한다. 컴포넌트에 콘텐츠 하드코딩 금지.
 - 디자인 결정은 `design.md`를 따른다.
+- `package-lock.json`을 **직접 손으로 편집하지 않는다.** 의존성 변경은 `npm install <pkg>`(또는 package.json 버전 수정 후 `npm install`)로 lockfile을 재생성한다.
+  수동 편집은 lockfile 내부 정합성을 깨뜨려 CI의 `npm ci`만 실패시킨다(로컬 `npm install`은 자동 보정되어 안 보임). 커밋·머지 전 `npm ci --dry-run`으로 확인한다.
