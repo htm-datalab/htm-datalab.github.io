@@ -69,3 +69,8 @@
 - 디자인 결정은 `design.md`를 따른다.
 - `package-lock.json`을 **직접 손으로 편집하지 않는다.** 의존성 변경은 `npm install <pkg>`(또는 package.json 버전 수정 후 `npm install`)로 lockfile을 재생성한다.
   수동 편집은 lockfile 내부 정합성을 깨뜨려 CI의 `npm ci`만 실패시킨다(로컬 `npm install`은 자동 보정되어 안 보임). 커밋·머지 전 `npm ci --dry-run`으로 확인한다.
+- **lockfile은 반드시 CI와 같은 Linux 환경에서 재생성한다.** 이 프로젝트는 sharp·Tailwind v4(lightningcss/oxide)·Next SWC·eslint(unrs) 등 **플랫폼별 네이티브 바이너리**(optional) 의존성이 많다.
+  Windows/macOS에서 만든 lockfile은 Linux용 네이티브 노드가 누락·오링크되어 CI(ubuntu)의 `npm ci` 또는 `npm run build`가 깨진다(예: `Cannot find module '../lightningcss.linux-x64-gnu.node'`).
+  재생성·검증은 CI와 동일한 Node 22 Linux에서 **실제 full 설치**로 한다(권장): 커밋된 파일만 담아
+  `git archive HEAD | docker run --rm -i -w /app node:22 bash -lc "tar x && npm install && npm ci && npm run build"` 가 통과해야 한다.
+  (`npm install --package-lock-only`만으로는 네이티브 설치 링크가 온전히 기록되지 않아 부족하다.)
