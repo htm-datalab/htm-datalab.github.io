@@ -9,16 +9,16 @@ export function ProjectsSection({ projects }: { projects: ProjectMeta[] }) {
   return (
     <section id="projects" aria-labelledby="projects-heading" className="scroll-mt-16">
       <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-32">
-        <Reveal>
+        <Reveal className="text-center">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-silver">
-            projects — 의뢰 작업
+            projects 소개
           </p>
           <h2
             id="projects-heading"
             className="mt-4 font-display text-[clamp(1.75rem,4.5vw,2.75rem)] font-extrabold leading-tight text-ink"
           >
-            두 건의 의뢰,
-            <br />두 개의 분석
+            데이터 분석으로<br/>
+            사회에 기여합니다
           </h2>
         </Reveal>
 

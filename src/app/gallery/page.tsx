@@ -15,15 +15,15 @@ export default function GalleryPage() {
   return (
     <div className="pt-16">
       <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8 lg:py-24">
-        <Reveal>
+        <Reveal className="text-center">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-silver">
             gallery — 활동 사진
           </p>
           <h1 className="mt-4 font-display text-[clamp(2rem,5vw,3.5rem)] font-extrabold text-ink">
             갤러리
           </h1>
-          <p className="mt-4 max-w-xl leading-relaxed text-graphite">
-            미팅과 현장의 순간들. 사진 위에 마우스를 올리면 색이 돌아옵니다.
+          <p className="mx-auto mt-4 max-w-xl leading-relaxed text-graphite">
+            형형색색의 순간들을 포착합니다.
           </p>
         </Reveal>
 

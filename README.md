@@ -46,6 +46,14 @@ author: "혜빈"
 
 주의: 본문에 HTML 주석(`<!-- -->`)은 쓸 수 없습니다. 주석은 `{/* 이렇게 */}`.
 
+### 글에 사진 넣기
+
+```bash
+npm run add-image -- "사진.jpg" --to blog --name my-post-photo
+```
+
+EXIF 제거·리사이즈·webp 변환 후 출력되는 마크다운 줄(`![설명](/images/blog/my-post-photo.webp)`)을 본문에 붙여넣으면 됩니다.
+
 ### 프로젝트 내용 수정
 
 `content/projects/<프로젝트폴더>/` 안의 파일을 수정합니다:
@@ -77,23 +85,32 @@ author: "혜빈"
 
 ### 갤러리 사진 추가
 
-1. **사진에서 EXIF(위치정보) 제거** — 탐색기에서 사진 우클릭 → 속성 → 자세히 → "속성 및 개인 정보 제거". (필수! CLAUDE.md 3장)
-2. 웹용으로 줄이기 — 긴 변 1600px, 300KB 이하 권장. 원본 컬러 그대로 (흑백 변환 금지 — 사이트가 CSS로 처리).
-3. `public/images/gallery/`에 파일을 넣고 `content/data/gallery.json`에 항목 추가:
+1. 아래 명령으로 사진을 변환합니다 (png/jpg/jpeg/webp 지원, **gif는 지원하지 않음**, svg는 벡터라 변환 불필요 — `public/images/gallery/`에 직접 복사):
 
-```json
-{
-  "src": "/images/gallery/파일명.jpg",
-  "alt": "스크린리더용 사진 설명",
-  "caption": "사진 아래 캡션",
-  "tags": ["체험", "마르쉐"],
-  "date": "2026-07-11"
-}
-```
+   ```bash
+   npm run add-image -- "사진경로.jpg" --to gallery
+   ```
+
+   자동으로 처리되는 것: **EXIF(위치정보 등) 제거**(CLAUDE.md 3장 필수 요건), 긴 변 1600px로 리사이즈, **webp로 변환**. 원본 컬러 그대로 유지됩니다 (흑백 변환 금지 — 사이트가 CSS로 처리).
+   이미 같은 이름의 파일이 있으면 `--name 다른이름`으로 바꾸거나 `--force`로 덮어쓰세요.
+
+2. 명령 실행 후 터미널에 출력되는 JSON 스니펫을 복사해 `content/data/gallery.json` 배열에 붙여넣고, `alt`/`caption`/`tags`를 채웁니다:
+
+   ```json
+   {
+     "src": "/images/gallery/파일명.webp",
+     "alt": "스크린리더용 사진 설명",
+     "caption": "사진 아래 캡션",
+     "tags": ["체험", "마르쉐"],
+     "date": "2026-07-11"
+   }
+   ```
+
+(참고) 스크립트 없이 수동으로 하려면: 탐색기에서 사진 우클릭 → 속성 → 자세히 → "속성 및 개인 정보 제거"로 EXIF를 지운 뒤 300KB 이하로 직접 줄여서 넣어도 됩니다.
 
 ### 팀원 정보 수정
 
-`content/data/members.json`. 사진은 `public/images/team/`에 (EXIF 제거 후).
+`content/data/members.json`. 사진은 `npm run add-image -- "사진.jpg" --to team --name 이름`으로 변환한 뒤, 출력된 `photo`/`alt` 필드를 해당 팀원 항목에 붙여넣습니다.
 
 ---
 

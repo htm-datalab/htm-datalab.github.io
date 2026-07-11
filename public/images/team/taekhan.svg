@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 640">
-  <rect width="480" height="640" fill="#7FA98C"/>
-  <circle cx="240" cy="250" r="95" fill="#5C8A6B"/>
-  <path d="M90 640 Q90 460 240 460 Q390 460 390 640 Z" fill="#5C8A6B"/>
-  <text x="240" y="285" text-anchor="middle" font-family="sans-serif" font-size="88" font-weight="700" fill="#7FA98C">택</text>
-  <text x="240" y="600" text-anchor="middle" font-family="monospace" font-size="20" fill="rgba(255,255,255,0.85)">[MOCK] 실제 사진으로 교체</text>
-</svg>

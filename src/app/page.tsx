@@ -15,7 +15,7 @@ export default function HomePage() {
     <>
       {/* 부드러운 스크롤은 홈에서만 */}
       <LenisProvider />
-      <Hero />
+      <Hero members={members} />
       <TeamSection members={members} />
       <ProjectsSection projects={projects} />
       <MeetingsSection meetings={meetings} />

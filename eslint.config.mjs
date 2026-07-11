@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Obsidian vault plugin bundles — vendored JS, not our source.
+    "content/.obsidian/**",
   ]),
 ]);
 

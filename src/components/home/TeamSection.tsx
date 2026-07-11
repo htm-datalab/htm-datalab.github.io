@@ -8,15 +8,15 @@ export function TeamSection({ members }: { members: Member[] }) {
   return (
     <section id="team" aria-labelledby="team-heading" className="scroll-mt-16">
       <div className="mx-auto max-w-6xl px-5 py-20 lg:px-8 lg:py-32">
-        <Reveal>
+        <Reveal className="text-center">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-silver">
-            team — 팀원과 멘토
+            team 소개
           </p>
           <h2
             id="team-heading"
             className="mt-4 font-display text-[clamp(1.75rem,4.5vw,2.75rem)] font-extrabold leading-tight text-ink"
           >
-            세 사람의 이름이
+            세 명의 이름이
             <br />
             하나의 팀명이 됐습니다
           </h2>
