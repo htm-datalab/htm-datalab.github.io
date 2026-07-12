@@ -54,6 +54,57 @@ npm run add-image -- "사진.jpg" --to blog --name my-post-photo
 
 EXIF 제거·리사이즈·webp 변환 후 출력되는 마크다운 줄(`![설명](/images/blog/my-post-photo.webp)`)을 본문에 붙여넣으면 됩니다.
 
+### Notion으로 블로그 쓰기 (개발 지식 불필요)
+
+MDX 파일 대신 **Notion 데이터베이스에 글을 쓰고 명령 하나로 동기화**할 수 있습니다.
+
+흐름: Notion DB에 글 작성 → **발행** 체크박스 체크 → `npm run sync-notion` 실행 → `git diff`로 결과 확인 → commit & push.
+(정적 사이트라 실시간 연동은 안 되고, 로컬에서 명령을 실행해야 사이트에 반영됩니다.)
+
+**최초 1회 설정**:
+
+1. https://www.notion.so/my-integrations 에서 integration을 만듭니다 (Internal, 워크스페이스 선택).
+2. 블로그 DB 페이지 우측 상단 `⋯` → **연결(Connections)** → 방금 만든 integration을 추가합니다.
+3. 레포 루트에 `.env.local` 파일을 만들고 아래처럼 토큰을 저장합니다:
+   ```
+   NOTION_TOKEN=ntn_...
+   ```
+   > ⚠️ **이 토큰은 절대 커밋하거나 다른 곳에 붙여넣지 마세요.** `.env.local`은 `.gitignore`에 등록되어 있어 커밋되지 않지만, 실수로 코드나 채팅에 붙여넣지 않도록 주의하세요 (이 레포는 공개입니다).
+
+**DB에 아래 속성을 정확한 한글 이름으로 만듭니다**:
+
+| 속성 이름 | 타입 | 설명 |
+| --- | --- | --- |
+| 제목 | 제목(title) | 글 제목 |
+| 날짜 | 날짜(date) | 게시일 |
+| 요약 | 텍스트(rich text) | 목록 카드에 보이는 1~2문장 요약 |
+| 태그 | 다중 선택(multi-select) | 목록 카드 태그 |
+| 작성자 | 선택(select) | 작성자 이름 |
+| 슬러그 | 텍스트(rich text) | URL에 쓰일 영문. 소문자·숫자·하이픈만 (예: `my-post-title`) |
+| 발행 | 체크박스(checkbox) | **체크된 글만 동기화됩니다.** 체크 해제하면 사이트에서 내려갑니다 |
+
+**사용법**:
+
+```bash
+npm run sync-notion -- --dry-run   # 먼저 변경 계획만 확인
+npm run sync-notion                # 실제로 content/blog/*.mdx 생성·수정·삭제
+```
+
+Notion에 쓴 사진은 자동으로 다운로드·webp 변환(EXIF 제거)되어 `public/images/blog/`에 저장됩니다.
+`손글(Notion 없이 직접 만든 .mdx)` 게시물은 sync가 절대 건드리지 않습니다.
+
+**Notion에서 쓰는 법 → 사이트에서 보이는 모습**:
+
+| Notion에서 | 사이트에서 |
+| --- | --- |
+| 콜아웃 블록 (💡 아이콘) | 노란 형광펜 강조 상자 (`<Callout type="insight">`) |
+| 콜아웃 블록 (다른 아이콘) | 일반 안내 상자 (`<Callout type="note">`) |
+| 텍스트에 노란 배경 하이라이트 | 형광펜 밑줄 강조 (`<Highlight>`) |
+| Tableau Public 링크 | 대시보드 임베드 (`<TableauEmbed>`) |
+| 사진 | 자동 다운로드·변환 후 삽입 |
+| 표, 인용, 코드블록, 토글, 목록, 제목 | 그대로 지원 |
+| 파일 첨부·페이지 링크 등 그 외 블록 | 지원하지 않아 일반 텍스트로 변환 (경고 출력) |
+
 ### 프로젝트 내용 수정
 
 `content/projects/<프로젝트폴더>/` 안의 파일을 수정합니다:
