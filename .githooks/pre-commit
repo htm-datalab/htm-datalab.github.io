@@ -1,3 +1,5 @@
 #!/bin/sh
 # 설치: git config core.hooksPath .githooks
-sh "$(git rev-parse --show-toplevel)/scripts/check-secrets.sh"
+ROOT="$(git rev-parse --show-toplevel)"
+sh "$ROOT/scripts/check-secrets.sh" || exit 1
+sh "$ROOT/scripts/check-lockfile.sh" || exit 1

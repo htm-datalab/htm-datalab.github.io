@@ -9,6 +9,8 @@
     "start": "next start",
     "lint": "eslint",
     "check-secrets": "sh scripts/check-secrets.sh",
+    "check-lockfile": "sh scripts/check-lockfile.sh",
+    "lock:regen": "sh scripts/regen-lock.sh",
     "add-image": "node scripts/add-image.mjs",
     "sync-notion": "node --env-file-if-exists=.env.local scripts/sync-notion.mjs"
   },

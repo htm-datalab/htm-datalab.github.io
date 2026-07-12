@@ -47,6 +47,9 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# scripts/regen-lock.sh 임시 작업 폴더
+.regen-lock-tmp/
+
 # env files (can opt-in for committing if needed)
 .env*
 
