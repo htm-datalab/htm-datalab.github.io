@@ -68,5 +68,6 @@
 - 콘텐츠는 `/content/**` (MDX·JSON)에서만 관리한다. 컴포넌트에 콘텐츠 하드코딩 금지.
 - 디자인 결정은 `design.md`를 따른다.
 - `package-lock.json`을 **직접 손으로 편집하지 않는다.** 의존성 변경은 `npm install <pkg>`(또는 package.json 버전 수정 후 `npm install`)로 lockfile을 재생성한다.
-  수동 편집은 lockfile 내부 정합성을 깨뜨려 CI의 `npm ci`만 실패시킨다(로컬 `npm install`은 자동 보정되어 안 보임). 커밋·머지 전 `npm ci --dry-run`으로 확인한다.
-- CI에서 Cannot find module '*.linux-x64-gnu.node'류 에러가 나면 lockfile+node_modules 삭제 후 재생성하거나 npm install --os=linux --cpu=x64 <pkg>로 Linux 바이너리를 강제 추가한다. docker 원라이너는 그때 검증용으로 쓴다
+- **lockfile은 반드시 CI와 같은 Linux 환경에서 재생성한다.** sharp·Tailwind v4(lightningcss/oxide)·Next SWC·eslint(unrs) 등 **플랫폼별 네이티브 바이너리**(optional) 의존성이 많아, Windows/macOS에서 만든 lockfile은 Linux용 네이티브 노드가 누락·오링크되어 CI(ubuntu)의 `npm ci`/`npm run build`가 깨진다.
+  `npm run lock:regen` (Docker로 node:24 Linux에서 fresh full install — `--package-lock-only`는 네이티브 링크가 온전히 담기지 않아 부족)로 재생성한다.
+  이 검증은 사람이 매번 기억할 필요 없이 **자동 강제**된다: pre-commit 훅(`scripts/check-lockfile.sh`)이 package.json/package-lock.json 변경 시 `npm ci --dry-run`으로 막고, `ci-check.yml`이 PR/브랜치 push마다 실제 `npm ci && npm run build`로 재확인한다.
