@@ -2,15 +2,15 @@
   {
     "name": "혜빈",
     "role": "팀장",
-    "intro": "[MOCK] 질문을 정의하고 팀의 방향을 잡습니다. 좋은 분석은 좋은 질문에서 시작한다고 믿습니다.",
-    "focus": ["problem-framing", "sql", "storytelling"],
-    "photo": "/images/team/hyebin.svg",
+    "intro": "흩어진 데이터에서 의미를 발견하고, 비즈니스에 필요한 전략으로 발전시킵니다. 근거 있는 의사결정을 만드는 분석가를 지향합니다.",
+    "focus": ["business-analytics", "data-driven-strategy", "problem-solving", "insight-generation"],
+    "photo": "/images/team/heybingbing.webp",
     "alt": "Alien 혜빈"
   },
   {
     "name": "택한",
     "role": "팀원",
-    "intro": "프로젝트 방향성을 설계하고, 복잡한 내용을 시각화로 설득력 있게 전달합니다.",
+    "intro": "프로젝트 방향성을 설계하고, 복잡한 내용을 시각화로 풀어 설득력 있는 스토리텔링을 만듭니다.",
     "focus": ["기획", "전처리", "시각화", "스토리텔링"],
     "photo": "/images/team/taekhan.webp",
     "alt": "윤택한 사진"

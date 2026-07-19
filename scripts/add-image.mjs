@@ -1,11 +1,14 @@
 // 팀/갤러리/블로그 사진을 webp로 변환하는 로컬 CLI. JSON·MDX 파일은 건드리지 않고
 // content/data/{members,gallery}.json 또는 블로그 본문에 붙여넣을 스니펫만 출력한다.
+// --to gallery일 때 입력 파일 여러 개는 "한 게시물"의 여러 이미지로 취급되어
+// images 배열 스니펫 하나로 합쳐 출력된다 (게시물을 나누려면 명령을 따로 실행).
 //
 // 사용법:
 //   npm run add-image -- <파일1> [파일2 ...] --to <team|gallery|blog> [--name <이름>] [--quality <1-100>] [--force]
 //
 // 예:
 //   npm run add-image -- "C:\Users\me\Pictures\팀 사진.jpg" --to gallery --name kickoff-day
+//   npm run add-image -- ".\1.jpg" ".\2.jpg" ".\3.jpg" --to gallery  (한 게시물, 사진 3장 — 여러 파일일 땐 --name 불가, 파일명에서 자동 생성)
 import { parseArgs } from "node:util";
 import { existsSync, mkdirSync, statSync } from "node:fs";
 import path from "node:path";
@@ -62,28 +65,36 @@ function todayLocalISODate() {
 
 function printSnippet(to, name) {
   const webPath = `/images/${to}/${name}.webp`;
-  if (to === "gallery") {
-    console.log(`\ncontent/data/gallery.json 배열에 추가:`);
-    console.log(
-      JSON.stringify(
-        {
-          src: webPath,
-          alt: "[MOCK] TODO: 스크린리더용 사진 설명",
-          caption: "[MOCK] TODO: 사진 캡션",
-          tags: [],
-          date: todayLocalISODate(),
-        },
-        null,
-        2,
-      ),
-    );
-  } else if (to === "blog") {
+  if (to === "blog") {
     console.log(`\n본문에 붙여넣기:`);
     console.log(`![TODO: 사진 설명](${webPath})`);
   } else {
     console.log(`\ncontent/data/members.json의 해당 팀원 항목에서 두 필드 교체:`);
     console.log(`  "photo": "${webPath}",`);
     console.log(`  "alt": "TODO: OO 프로필 사진 설명"`);
+  }
+}
+
+/** gallery 대상 파일들을 처리한 뒤 한 게시물(images 배열)로 합쳐 출력 */
+function printGallerySnippet(outNames) {
+  console.log(`\ncontent/data/gallery.json 배열에 추가 (사진 ${outNames.length}장, 한 게시물):`);
+  console.log(
+    JSON.stringify(
+      {
+        images: outNames.map((name) => ({
+          src: `/images/gallery/${name}.webp`,
+          alt: "[MOCK] TODO: 스크린리더용 사진 설명",
+        })),
+        caption: "[MOCK] TODO: 사진 캡션",
+        tags: [],
+        date: todayLocalISODate(),
+      },
+      null,
+      2,
+    ),
+  );
+  if (outNames.length > 1) {
+    console.log(`※ 서로 다른 게시물로 나누려면 명령을 파일별로 따로 실행하세요.`);
   }
 }
 
@@ -155,7 +166,9 @@ async function processFile(inputPath, { to, name, quality, force }) {
     console.warn(`  ⚠ 용량이 300KB를 초과합니다 — --quality를 낮춰보세요 (현재 ${quality}).`);
   }
 
+  if (to === "gallery") return outName;
   printSnippet(to, outName);
+  return outName;
 }
 
 async function main() {
@@ -197,14 +210,23 @@ async function main() {
   }
 
   let hadError = false;
+  const galleryOutNames = [];
   for (const inputPath of positionals) {
     try {
-      await processFile(inputPath, { to: values.to, name: values.name, quality, force: values.force });
+      const outName = await processFile(inputPath, {
+        to: values.to,
+        name: values.name,
+        quality,
+        force: values.force,
+      });
+      if (values.to === "gallery") galleryOutNames.push(outName);
     } catch (err) {
       hadError = true;
       console.error(`\n✗ ${err.message}`);
     }
   }
+
+  if (galleryOutNames.length > 0) printGallerySnippet(galleryOutNames);
 
   if (hadError) process.exitCode = 1;
 }

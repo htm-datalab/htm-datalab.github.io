@@ -26,6 +26,25 @@ export function GalleryClient({ items }: { items: GalleryItem[] }) {
     [items, activeTag],
   );
 
+  // 라이트박스는 필터에 보이는 모든 게시물의 이미지를 이어서 넘긴다.
+  // offsets[i] = filtered[i]의 첫 이미지가 slides 배열에서 시작하는 인덱스.
+  const { slides, offsets } = useMemo(() => {
+    const slides: { src: string; alt: string; description: string }[] = [];
+    const offsets: number[] = [];
+    for (const post of filtered) {
+      offsets.push(slides.length);
+      post.images.forEach((img, i) => {
+        slides.push({
+          src: img.src,
+          alt: img.alt,
+          description:
+            post.images.length > 1 ? `${post.caption} (${i + 1}/${post.images.length})` : post.caption,
+        });
+      });
+    }
+    return { slides, offsets };
+  }, [filtered]);
+
   return (
     <>
       {/* 태그 필터 */}
@@ -49,33 +68,46 @@ export function GalleryClient({ items }: { items: GalleryItem[] }) {
 
       {/* 사진 그리드 — 필터가 바뀔 때마다 스태거 재생을 피하려고 key로 리셋하지 않는다 */}
       <StaggerGroup className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
-        {filtered.map((item, i) => (
-          <StaggerItem key={item.src}>
-            <figure>
-              <button
-                type="button"
-                onClick={() => setIndex(i)}
-                aria-label={`${item.caption} — 크게 보기`}
-                className="group block w-full overflow-hidden rounded-lg border border-line bg-paper-dim"
-              >
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  width={800}
-                  height={600}
-                  loading="lazy"
-                  className="aspect-[4/3] w-full object-cover grayscale transition-[filter,transform] duration-[450ms] group-hover:scale-[1.02] group-hover:grayscale-0 group-focus-visible:grayscale-0"
-                />
-              </button>
-              <figcaption className="mt-2 flex items-baseline justify-between gap-2 px-0.5">
-                <span className="truncate text-xs text-graphite">{item.caption}</span>
-                <time dateTime={item.date} className="shrink-0 font-mono text-[0.6875rem] text-silver">
-                  {item.date}
-                </time>
-              </figcaption>
-            </figure>
-          </StaggerItem>
-        ))}
+        {filtered.map((item, i) => {
+          const cover = item.images[0];
+          const count = item.images.length;
+          return (
+            <StaggerItem key={cover.src}>
+              <figure>
+                <button
+                  type="button"
+                  onClick={() => setIndex(offsets[i])}
+                  aria-label={
+                    count > 1
+                      ? `${item.caption} — 사진 ${count}장 크게 보기`
+                      : `${item.caption} — 크게 보기`
+                  }
+                  className="group relative block w-full overflow-hidden rounded-lg border border-line bg-paper-dim"
+                >
+                  <img
+                    src={cover.src}
+                    alt={cover.alt}
+                    width={800}
+                    height={600}
+                    loading="lazy"
+                    className="aspect-[4/3] w-full object-cover grayscale transition-[filter,transform] duration-[450ms] group-hover:scale-[1.02] group-hover:grayscale-0 group-focus-visible:grayscale-0"
+                  />
+                  {count > 1 && (
+                    <span className="absolute right-2 top-2 rounded-full bg-ink/70 px-2 py-0.5 font-mono text-[0.6875rem] text-paper">
+                      ⧉ {count}
+                    </span>
+                  )}
+                </button>
+                <figcaption className="mt-2 flex items-baseline justify-between gap-2 px-0.5">
+                  <span className="truncate text-xs text-graphite">{item.caption}</span>
+                  <time dateTime={item.date} className="shrink-0 font-mono text-[0.6875rem] text-silver">
+                    {item.date}
+                  </time>
+                </figcaption>
+              </figure>
+            </StaggerItem>
+          );
+        })}
       </StaggerGroup>
 
       {filtered.length === 0 && (
@@ -88,11 +120,7 @@ export function GalleryClient({ items }: { items: GalleryItem[] }) {
         open={index >= 0}
         index={index}
         close={() => setIndex(-1)}
-        slides={filtered.map((i) => ({
-          src: i.src,
-          alt: i.alt,
-          description: i.caption,
-        }))}
+        slides={slides}
         plugins={[Captions]}
         styles={{ container: { backgroundColor: "rgba(22, 22, 22, 0.95)" } }}
       />
