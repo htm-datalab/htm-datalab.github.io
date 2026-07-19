@@ -159,13 +159,22 @@ export type Meeting = {
   done: boolean;
 };
 
-export type GalleryItem = {
+export type GalleryImage = {
   src: string;
   alt: string;
+};
+
+export type GalleryItem = {
+  images: GalleryImage[];
   caption: string;
   tags: string[];
   date: string;
 };
+
+/** gallery.json 원본 항목 — 단일 이미지(src/alt) 또는 여러 이미지(images) 형태를 모두 허용 */
+type GalleryItemRaw =
+  | { src: string; alt: string; caption: string; tags: string[]; date: string }
+  | { images: GalleryImage[]; caption: string; tags: string[]; date: string };
 
 function readJson<T>(file: string): T {
   return JSON.parse(fs.readFileSync(path.join(CONTENT_DIR, "data", file), "utf8")) as T;
@@ -181,5 +190,10 @@ export function getMeetings(): Meeting[] {
 }
 
 export function getGalleryItems(): GalleryItem[] {
-  return readJson<GalleryItem[]>("gallery.json").sort((a, b) => (a.date < b.date ? 1 : -1));
+  return readJson<GalleryItemRaw[]>("gallery.json")
+    .map(
+      (item): GalleryItem =>
+        "images" in item ? item : { ...item, images: [{ src: item.src, alt: item.alt }] },
+    )
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
