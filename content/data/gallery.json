@@ -1,65 +1,206 @@
 [
   {
+    "src": "/images/gallery/beautifulstore-meeting-20260430.webp",
+    "alt": "01_아름다운가게 첫 미팅",
+    "caption": "[아름다운가게] 1차 미팅",
+    "tags": ["미팅","아름다운가게"],
+    "date": "2026-04-30"
+  },
+  {
+    "images": [
+    {
+      "src": "/images/gallery/marche-meeting-20260507_1.webp",
+      "alt": "칼국수"
+    },
+    {
+      "src": "/images/gallery/marche-meeting-20260507_2.webp",
+      "alt": "무침"
+    },
+    {
+      "src": "/images/gallery/marche-meeting-20260507_3.webp",
+      "alt": "전"
+    }
+  ],
+    "caption": "[마르쉐] 1차 미팅",
+    "tags": ["미팅", "마르쉐"],
+    "date": "2026-05-07"
+  },
+  {
+    "images": [
+    {
+      "src": "/images/gallery/marche-event-20260516_1.webp",
+      "alt": "마르쉐 국립극장"
+    },
+    {
+      "src": "/images/gallery/marche-event-20260516_2.webp",
+      "alt": "요리팀 음식으로 점심먹기"
+    },
+    {
+      "src": "/images/gallery/marche-event-20260516_3.webp",
+      "alt": "요리팀 음식"
+    },
+    {
+      "src": "/images/gallery/marche-event-20260516_4.webp",
+      "alt": "판매부스"
+    }
+  ],
+    "caption": "농부시장 마르쉐@ 국립극장 방문😲",
+    "tags": ["체험", "마르쉐"],
+    "date": "2026-05-16"
+  },
+  {
     "src": "/images/gallery/g01.svg",
-    "alt": "킥오프 미팅에서 화이트보드에 아이디어를 적는 모습 (Mock 이미지)",
-    "caption": "킥오프 데이 — 첫 화이트보드",
-    "tags": ["미팅"],
-    "date": "2026-03-07"
+    "alt": "02_마르쉐 미팅",
+    "caption": "[마르쉐] 2차 미팅",
+    "tags": ["미팅", "마르쉐"],
+    "date": "2026-05-26"
   },
   {
     "src": "/images/gallery/g02.svg",
-    "alt": "아름다운가게 담당자와의 첫 미팅 현장 (Mock 이미지)",
-    "caption": "아름다운가게 1차 미팅",
+    "alt": "미팅 전 회의",
+    "caption": "[정기회의] 아름다운가게 2차 미팅 전 회의",
     "tags": ["미팅", "아름다운가게"],
-    "date": "2026-04-02"
+    "date": "2026-06-23"
+  },
+  {
+    "images": [
+    {
+      "src": "/images/gallery/beautifulstore-meeting-20260623_2.webp",
+      "alt": "아름다운가게 앞에서 기념사진1"
+    },
+    {
+      "src": "/images/gallery/beautifulstore-meeting-20260623_1.webp",
+      "alt": "아름다운가게 앞에서 기념사진2"
+    }
+  ],
+    "caption": "[아름다운가게] 2차 미팅",
+    "tags": ["미팅", "아름다운가게"],
+    "date": "2026-06-23"
+  },
+  {
+    "images": [
+    {
+      "src": "/images/gallery/marche-farm-20260624_1.webp",
+      "alt": "천의바람농장 입구"
+    },
+    {
+      "src": "/images/gallery/marche-farm-20260624_5.webp",
+      "alt": "천의바람농장 사진"
+    },
+    {
+      "src": "/images/gallery/marche-farm-20260624_2.webp",
+      "alt": "원슈가데이 디저트"
+    },
+    {
+      "src": "/images/gallery/marche-farm-20260624_3.webp",
+      "alt": "천의바람농장 기념사진1"
+    },
+    {
+      "src": "/images/gallery/marche-farm-20260624_4.webp",
+      "alt": "천의바람농장 기념사진2"
+    }
+  ],
+    "caption": "천의바람농장 농가체험🧑‍🌾",
+    "tags": ["체험","마르쉐"],
+    "date": "2026-06-24"
   },
   {
     "src": "/images/gallery/g03.svg",
-    "alt": "아름다운가게 그램샵 코너를 둘러보는 모습 (Mock 이미지)",
-    "caption": "그램샵 코너 탐방",
-    "tags": ["체험", "아름다운가게"],
-    "date": "2026-04-18"
+    "alt": "03_마르쉐 온라인 회의",
+    "caption": "[마르쉐] 3차 미팅",
+    "tags": ["미팅","마르쉐"],
+    "date": "2026-06-26"
   },
   {
-    "src": "/images/gallery/g04.svg",
-    "alt": "밤 늦게까지 이어진 분석 작업 (Mock 이미지)",
-    "caption": "심야 분석 스프린트",
-    "tags": ["미팅"],
-    "date": "2026-05-08"
-  },
-  {
-    "src": "/images/gallery/g05.svg",
-    "alt": "최종 보고 발표 리허설 장면 (Mock 이미지)",
-    "caption": "최종 보고 리허설",
-    "tags": ["미팅", "아름다운가게"],
-    "date": "2026-05-27"
-  },
-  {
-    "src": "/images/gallery/g06.svg",
-    "alt": "마르쉐@ 킥오프 미팅 현장 (Mock 이미지)",
-    "caption": "마르쉐@ 킥오프",
+    "src": "/images/gallery/marche-plan-20260628.webp",
+    "alt": "00_마르쉐 분석 계획 선정 회의",
+    "caption": "[정기회의] 마르쉐 분석 계획 선정 회의",
     "tags": ["미팅", "마르쉐"],
-    "date": "2026-06-06"
-  },
-  {
-    "src": "/images/gallery/g07.svg",
-    "alt": "혜화 장터 부스에서 설문을 진행하는 모습 (Mock 이미지)",
-    "caption": "혜화 장터 부스에서",
-    "tags": ["체험", "마르쉐"],
-    "date": "2026-06-20"
-  },
-  {
-    "src": "/images/gallery/g08.svg",
-    "alt": "출점 농부 인터뷰를 기록하는 모습 (Mock 이미지)",
-    "caption": "농부 인터뷰 기록",
-    "tags": ["체험", "마르쉐"],
-    "date": "2026-06-20"
-  },
-  {
-    "src": "/images/gallery/g09.svg",
-    "alt": "7월 정기 회의에서 지표 프레임을 논의하는 모습 (Mock 이미지)",
-    "caption": "7월 정기 회의",
-    "tags": ["미팅"],
-    "date": "2026-07-03"
-  }
+    "date": "2026-06-28"
+},
+{
+    "src": "/images/gallery/analysis-website-plan-20260704.webp",
+    "alt": "01_분석 계획 수립 & 웹사이트 기획",
+    "caption": "[정기회의] 분석 계획 수립 & 웹사이트 기획",
+    "tags": ["미팅", "마르쉐", "아름다운가게"],
+    "date": "2026-07-04"
+},
+{
+  "images": [
+    {
+      "src": "/images/gallery/marche-meeting-20260705.webp",
+      "alt": "04_마르쉐 회의"
+    },
+    {
+      "src": "/images/gallery/marche-meeting-20260705_1.webp",
+      "alt": "04_마르쉐 회의npm"
+    }
+  ],
+  "caption": "[마르쉐] 4차 미팅-분석계획 및 산출물구성 계획 공유",
+  "tags": ["미팅", "마르쉐"],
+  "date": "2026-07-05"
+},
+{
+  "images": [
+    {
+      "src": "/images/gallery/20260709-1.webp",
+      "alt": "빙수 먹으러 가는 길 photoby.소라님"
+    },
+    {
+      "src": "/images/gallery/20260709-2.webp",
+      "alt": "풍문고기집 서울역점의 고기사진"
+    },
+    {
+      "src": "/images/gallery/20260709-3.webp",
+      "alt": "풍문고기집 서울역점의 육회사진"
+    },
+    {
+      "src": "/images/gallery/20260709-4.webp",
+      "alt": "빙수 먹는 팀원들"
+    }
+  ],
+  "caption": "마르쉐 두번째 회식-고기파티🍖",
+  "tags": ["마르쉐"],
+  "date": "2026-07-09"
+},
+{
+    "src": "/images/gallery/preprocessing-review-20260711.webp",
+    "alt": "02_마르쉐 전처리 리뷰&아름다운 가게 분석 방법",
+    "caption": "[정기회의] 마르쉐 전처리 리뷰 & 아름다운가게 분석 방법",
+    "tags": ["미팅", "마르쉐","아름다운가게"],
+    "date": "2026-07-11"
+},
+{
+  "images": [
+    {
+      "src": "/images/gallery/preprocessing-week-20260718.webp",
+      "alt": "03_벌써 전처리 주간 종료~ (비상)"
+    }
+  ],
+  "caption": "[정기회의] 마르쉐 전처리 최종 리뷰 & 아름다운가게 EDA",
+  "tags": ["미팅", "마르쉐","아름다운가게"],
+  "date": "2026-07-18"
+},
+{
+  "images": [
+    {
+      "src": "/images/gallery/marche-meeting-20260719.webp",
+      "alt": "05_마르쉐 회의"
+    }
+  ],
+  "caption": "[마르쉐] 5차 미팅-전처리 공유&피드백",
+  "tags": ["미팅", "마르쉐"],
+  "date": "2026-07-19"
+},
+{
+  "images": [
+    {
+      "src": "/images/gallery/g04.svg",
+      "alt": "해산물 사진 들어갈 자리"
+    }
+  ],
+  "caption": "마르쉐 세번째 회식-해산물파티🦞",
+  "tags": ["마르쉐"],
+  "date": "2026-07-29"
+}
 ]
