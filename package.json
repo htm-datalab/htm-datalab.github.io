@@ -12,6 +12,7 @@
     "check-lockfile": "sh scripts/check-lockfile.sh",
     "lock:regen": "sh scripts/regen-lock.sh",
     "add-image": "node scripts/add-image.mjs",
+    "gallery-image": "node scripts/gallery-image.mjs",
     "sync-notion": "node --env-file-if-exists=.env.local scripts/sync-notion.mjs"
   },
   "dependencies": {

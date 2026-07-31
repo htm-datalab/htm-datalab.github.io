@@ -139,11 +139,11 @@ Notion에 쓴 사진은 자동으로 다운로드·webp 변환(EXIF 제거)되�
 1. 아래 명령으로 사진을 변환합니다 (png/jpg/jpeg/webp 지원, **gif는 지원하지 않음**, svg는 벡터라 변환 불필요 — `public/images/gallery/`에 직접 복사):
 
    ```bash
-   npm run add-image -- "사진경로.jpg" --to gallery
+   npm run gallery-image -- "사진경로.jpg" --name 웹에서-사용할-파일명
    ```
 
    자동으로 처리되는 것: **EXIF(위치정보 등) 제거**(CLAUDE.md 3장 필수 요건), 긴 변 1600px로 리사이즈, **webp로 변환**. 원본 컬러 그대로 유지됩니다 (흑백 변환 금지 — 사이트가 CSS로 처리).
-   이미 같은 이름의 파일이 있으면 `--name 다른이름`으로 바꾸거나 `--force`로 덮어쓰세요.
+   변환 결과는 `public/images/gallery/웹에서-사용할-파일명.webp`에 저장됩니다. 이미 같은 이름의 파일이 있으면 `--name 다른이름`으로 바꾸거나 `--force`로 덮어쓰세요.
 
 2. 명령 실행 후 터미널에 출력되는 JSON 스니펫을 복사해 `content/data/gallery.json` 배열에 붙여넣고, `alt`/`caption`/`tags`를 채웁니다:
 
