@@ -8,6 +8,7 @@
 //
 // 예:
 //   npm run add-image -- "C:\Users\me\Pictures\팀 사진.jpg" --to gallery --name kickoff-day
+//   npm run add-image -- "C:\Users\82105\Documents\카카오톡 받은 파일\05_마르쉐 미디어&아름다운가게 보고서.png" --to gallery --name team-meeting-20260801
 //   npm run add-image -- ".\1.jpg" ".\2.jpg" ".\3.jpg" --to gallery  (한 게시물, 사진 3장 — 여러 파일일 땐 --name 불가, 파일명에서 자동 생성)
 import { parseArgs } from "node:util";
 import { existsSync, mkdirSync, statSync } from "node:fs";

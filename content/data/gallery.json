@@ -193,21 +193,43 @@
   "date": "2026-07-19"
 },
 {
-  "images": [
-    {
-      "src": "/images/gallery/g04.svg",
-      "alt": "해산물 사진 들어갈 자리"
-    }
-  ],
-  "caption": "마르쉐 세번째 회식-해산물파티🦞",
-  "tags": ["마르쉐"],
-  "date": "2026-07-29"
-},
-{
     "src": "/images/gallery/20260726.webp",
     "alt": "04_마르쉐 EDA & 아름다운가게 장바구니분석",
     "caption": "[정기회의] 마르쉐 EDA & 아름다운가게 장바구니분석",
     "tags": ["미팅","마르쉐","아름다운가게"],
     "date": "2026-07-26"
-  }
+  },
+{
+  "images": [
+    {
+      "src": "public/images/gallery/kakaotalk-20260801-225311257.webp",
+      "alt": "골목집"
+    },
+    {
+      "src": "public/images/gallery/kakaotalk-20260801-225311257-01.webp",
+      "alt": "카페"
+    }
+  ],
+  "caption": "마르쉐 세번째 회식-해산물파티🦞",
+  "tags": ["마르쉐"],
+  "date": "2026-07-29"
+  },
+{
+    "src": "public/images/gallery/team-meeting-20260801.webp",
+    "alt": "05_마르쉐 미디어 & 아름다운가게 보고서",
+  "caption": "[정기회의] 마르쉐 미디어 & 아름다운가게 보고서",
+  "tags": ["미팅","마르쉐","아름다운가게"],
+  "date": "2026-08-01"
+},
+{
+  "images": [
+    {
+      "src": "/images/gallery/marche-meeting-20260719.webp",
+      "alt": "06_마르쉐 회의"
+    }
+  ],
+  "caption": "[마르쉐] 6차 미팅-진행사항 공유 보고서-수정필요!!!",
+  "tags": ["미팅", "마르쉐"],
+  "date": "2026-08-02"
+}
 ]
