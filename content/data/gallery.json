@@ -202,11 +202,11 @@
 {
   "images": [
     {
-      "src": "public/images/gallery/kakaotalk-20260801-225311257.webp",
+      "src": "/images/gallery/kakaotalk-20260801-225311257.webp",
       "alt": "골목집"
     },
     {
-      "src": "public/images/gallery/kakaotalk-20260801-225311257-01.webp",
+      "src": "/images/gallery/kakaotalk-20260801-225311257-01.webp",
       "alt": "카페"
     }
   ],
@@ -215,8 +215,8 @@
   "date": "2026-07-29"
   },
 {
-    "src": "public/images/gallery/team-meeting-20260801.webp",
-    "alt": "05_마르쉐 미디어 & 아름다운가게 보고서",
+  "src": "/images/gallery/team-meeting-20260801.webp",
+  "alt": "05_마르쉐 미디어 & 아름다운가게 보고서",
   "caption": "[정기회의] 마르쉐 미디어 & 아름다운가게 보고서",
   "tags": ["미팅","마르쉐","아름다운가게"],
   "date": "2026-08-01"
