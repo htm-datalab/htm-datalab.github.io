@@ -224,12 +224,23 @@
 {
   "images": [
     {
-      "src": "/images/gallery/marche-meeting-20260719.webp",
+      "src": "/images/gallery/marche-meeting-20260801-1.webp",
+      "alt": "06_마르쉐 회의"
+    },
+    {
+      "src": "/images/gallery/marche-meeting-20260801-2.webp",
       "alt": "06_마르쉐 회의"
     }
   ],
-  "caption": "[마르쉐] 6차 미팅-진행사항 공유 보고서-수정필요!!!",
+  "caption": "[마르쉐] 6차 미팅-진행사항 공유 보고서",
   "tags": ["미팅", "마르쉐"],
   "date": "2026-08-02"
+},
+{
+  "src": "/images/gallery/team-meeting-20260808.webp",
+  "alt": "06_이제진짜진짜중간보고 (비상)",
+  "caption": "[정기회의] 마르쉐 전문항 시각화 & 아름다운가게 최종 보고서",
+  "tags": ["미팅","마르쉐","아름다운가게"],
+  "date": "2026-08-08"
 }
 ]
