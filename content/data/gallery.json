@@ -265,6 +265,33 @@
 {
   "images": [
     {
+      "src": "public/images/gallery/20260819-1.webp",
+      "alt": "마르쉐 자원봉사자 모임"
+    },
+    {
+      "src": "public/images/gallery/20260819-2.webp",
+      "alt": "마르쉐 자원봉사자 모임"
+    },
+    {
+      "src": "public/images/gallery/20260819-3.webp",
+      "alt": "마르쉐 자원봉사자 모임"
+    },
+    {
+      "src": "public/images/gallery/20260819-4.webp",
+      "alt": "마르쉐 자원봉사자 모임"
+    },
+    {
+      "src": "public/images/gallery/20260819-5.webp",
+      "alt": "마르쉐 자원봉사자 모임"
+    }
+  ],
+  "caption": "마르쉐 자원활동가 모임🧑💛",
+  "tags": ["체험", "마르쉐"],
+  "date": "2026-08-19"
+},
+{
+  "images": [
+    {
       "src": "public/images/gallery/20260823-1.webp",
       "alt": "07_마르쉐 임팩트 리포트 회의"
     }
@@ -283,6 +310,21 @@
   "caption": "[정기회의] 프로젝트 정리 문서 작성",
   "tags": ["미팅", "마르쉐","아름다운가게"],
   "date": "2026-08-23"
+},
+{
+  "images": [
+    {
+      "src": "public/images/gallery/20260826-1.webp",
+      "alt": "번개모임"
+    },
+    {
+      "src": "public/images/gallery/20260826-2.webp",
+      "alt": "번개모임"
+    }
+  ],
+  "caption": "번개 모임⚡",
+  "tags": ["마르쉐"],
+  "date": "2026-08-26"
 },
 {
   "images": [
